@@ -2,4 +2,4 @@
 #include <inttyped.h>
 #include<>
 #
-№
+
