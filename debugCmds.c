@@ -4,7 +4,7 @@
 #include <inttypes.h>
 #include "Nightfall.h"
 
-// This source file holds functions which deal with various debugger commands
+
 
 void activateBreakpoint(cpu8080 *cpu, char *menuInput)
 {
@@ -239,7 +239,7 @@ void printRegister(cpu8080 *cpu, char *menuInput)
 
 void resetExecution(cpu8080 *cpu)
 {
-	// Set the flags to their default values
+	
 	cpu->carry = 0;
 	cpu->one = 1;
 	cpu->parity = 0;
@@ -248,7 +248,6 @@ void resetExecution(cpu8080 *cpu)
 	cpu->zero1 = 0;
 	cpu->sign = 0;
 
-	// Set the registers to their default values
 	cpu->a = 0x0;
 	cpu->b = 0x0;
 	cpu->c = 0x0;
@@ -257,7 +256,7 @@ void resetExecution(cpu8080 *cpu)
 	cpu->h = 0x0;
 	cpu->l = 0x0;
 
-	// Initialize the stack pointer, and the program counter
+	
 	cpu->sp = startStack;
 	cpu->pc = 0x0;
 
@@ -271,13 +270,13 @@ cpu8080 *createCpu(void)
 {
 	cpu8080 *cpu;
 
-	// Allocate memory for the cpu
+	
 	cpu = calloc(1, sizeof(cpu8080));
 
-	// Allocate the memory for the cpu
+	
 	cpu->memory = calloc(1, memorySize);
 
-	// Set the flags to their default values
+	
 	cpu->carry = 0;
 	cpu->one = 1;
 	cpu->parity = 0;
@@ -286,7 +285,7 @@ cpu8080 *createCpu(void)
 	cpu->zero1 = 0;
 	cpu->sign = 0;
 
-	// Set the registers to their default values
+	
 	cpu->a = 0x0;
 	cpu->b = 0x0;
 	cpu->c = 0x0;
@@ -295,7 +294,7 @@ cpu8080 *createCpu(void)
 	cpu->h = 0x0;
 	cpu->l = 0x0;
 
-	// Initialize the stack pointer, and the program counter
+	
 	cpu->sp = (uint16_t)startStack;
 	cpu->pc = 0x0;
 
@@ -307,7 +306,7 @@ cpu8080 *createCpu(void)
 
 	cpu->breaked = false;
 
-	// Set the values for the memory locations
+	
 	cpu->memBeg = (uint16_t)0;
 	cpu->memEnd = (uint16_t)memorySize;
 	cpu->stackBeg = (uint16_t)startStack;
