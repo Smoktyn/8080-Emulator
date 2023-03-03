@@ -2,31 +2,30 @@
 #include <inttypes.h>
 #include "Nightfall.h"
 
-// This file has the code which actually runs the operations for each opcode
+
 
 void emulate(cpu8080 *cpu)
 {
-	// Variables for helping us tell what code we are executing
+	
 	int running;
 	int stepIns;
 	uint8_t op;
 
-	// Variables for helping with calculations
+	
 	uint8_t x0;
 	uint16_t x;
 	uint16_t y;
 	uint32_t z;
 
-	// This variable just keeps track if we are running
 	running = 1;
 
-	// Run it as a for loop for every possible instruction between 0 - 0xffff (all 16 bits of memory), and while we are running
+	
 	for (cpu->pc = cpu->pc; cpu->pc < 0x1000 && running == 1; cpu->pc++)
 	{
-		// Set the opcode to the next instruction
+		
 		op = (uint8_t)cpu->memory[cpu->pc];
 		
-		// Check if we hit a breakpoint
+		
 		if (isBreakPoint(cpu) == 0 && cpu->breaked == false)
 		{
 			printf("Breakpoint hit at 0x%x\n", (int)cpu->pc);
@@ -38,7 +37,7 @@ void emulate(cpu8080 *cpu)
 			cpu->breaked = false;
 		}
 
-		// See if we are stepping through an instruction, and break accordingly
+		
 
 		if (cpu->step == 1)
 		{
@@ -52,13 +51,13 @@ void emulate(cpu8080 *cpu)
 			return;
 		}
 
-		// See if we are disassembling the instructions as they are ran
+	
 		if (cpu->disasAsExec == true)
 		{
 			disass(cpu, cpu->pc);
 		}
 
-		// Here is a switch statement which maps specific op codes to their respective functionallity
+		
 
 		switch (op)
 		{
