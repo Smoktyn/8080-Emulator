@@ -2,7 +2,6 @@
 #include <inttypes.h>
 #include "Nightfall.h"
 
-// This file holds code for push / pop functions
 
 void pop(cpu8080 *cpu, uint8_t *x, uint8_t *y)
 {
