@@ -2,8 +2,6 @@
 #include <inttypes.h>
 #include "Nightfall.h"
 
-// This source file deals with disassembly
-// It's essentially just a giant switch statement
 
 int disass(cpu8080 *cpu, int i)
 {
