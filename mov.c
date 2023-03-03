@@ -2,7 +2,7 @@
 #include <inttypes.h>
 #include "Nightfall.h"
 
-// Here is the code for mov (and mov - like) operationa
+
 
 void mvi(cpu8080 *cpu, uint8_t *reg, uint8_t arg)
 {
