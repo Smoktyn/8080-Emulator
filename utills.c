@@ -4,7 +4,6 @@
 #include <inttypes.h>
 #include "Nightfall.h"
 
-// This file holds functions which help with various parts of the code
 
 uint8_t convertFlagsRegister(cpu8080 *cpu)
 {
