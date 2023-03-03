@@ -3,7 +3,6 @@
 #include <inttypes.h>
 #include "Nightfall.h"
 
-// This is the main code file, it holds the menu function for the debugger, and the main function
 
 void menu(cpu8080 *cpu)
 {
@@ -87,7 +86,7 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		puts("Takes single argument, filename of binary to emulate / debug\nex:	./Nightfall block0/testcase00e");
+		puts("Takes single argument, filename of binary to emulate / debug");
 		exit(0);
 	}
 
@@ -95,7 +94,7 @@ int main(int argc, char **argv)
 
 	scanBinary(argv[1], cpu);
 
-	puts("Nightfall 8080 Emulator / Debugger / Disassembler");
+	puts("8080 Emulator / Debugger / Disassembler");
 
 	menu(cpu);
 
