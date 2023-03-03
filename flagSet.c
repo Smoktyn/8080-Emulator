@@ -2,7 +2,7 @@
 #include <inttypes.h>
 #include "Nightfall.h"
 
-// This code contains functions for setting flags after operations
+
 
 void auxiliaryFlag(cpu8080 *cpu, uint8_t x, uint8_t y, uint8_t z)
 {
