@@ -3,7 +3,7 @@
 #include <inttypes.h>
 #include "Nightfall.h"
 
-// This file contains some utillity functions for the debugger
+
 
 int isBreakPoint(cpu8080 *cpu)
 {
