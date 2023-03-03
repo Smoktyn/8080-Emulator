@@ -2,7 +2,6 @@
 #include <inttypes.h>
 #include "Nightfall.h"
 
-// Here is the code for operations dealing with comparisons, and redirecting code execution
 
 void cmp(cpu8080 *cpu, uint8_t x)
 {
