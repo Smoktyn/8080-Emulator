@@ -32,16 +32,16 @@ typedef struct cpu8080 {
 	bool zero;
 	bool sign;
 
-	// stack (sp) and program counter (pc) registers
+	
 	uint16_t sp;
 	uint16_t pc;
 
-	// a ptr to the memory region
+	
 	uint8_t *memory;
 
-	// The rest of these are variables for debugging purposes
+	
 
-	// a ptr to the breakpoints
+	
 	breakpoints *breakpoints;
 
 	// a bool to indicate if it is running
@@ -49,38 +49,36 @@ typedef struct cpu8080 {
 
 	bool breaked;
 
-	// Here are some values, which will keep track of where the various regions of memory are 
-	uint16_t memBeg;	// Beginning of entire memory region
-	uint16_t memEnd;	// End of entrie memory region
-	uint16_t codeBeg;	// Beginning of where code is loaded
-	uint16_t codeEnd;	// End of where code is loaded
-	uint16_t stackBeg;	// Beginning of the stack
-	// the end of the code is kept by codeEnd, and the end of the stack is kep by sp
+	
+	uint16_t memBeg;	
+	uint16_t memEnd;	
+	uint16_t codeBeg;	
+	uint16_t codeEnd;	
+	uint16_t stackBeg;	
+	
 
-	bool disasAsExec; // A bool to keep track of whether or not to disassmble intructions as they are executed
+	bool disasAsExec; 
 
-	uint8_t step; // A value to keep track of the staus of steeping through instructions, for the step instruction command
+	uint8_t step; 
 
-	// a bit which controls whether interrupts can happen, currently don't use it for anything. 1 for allow, 0 for disable.
+	
 	bool allowInterrupt;
 
 } cpu8080;
 
-// Here are some constants I declared, for things such as size of memory region,
-// where the stack starts, and the file which memory is dumped to
 
 #define menuInputSize 20
 #define memorySize 0xffff
 #define startStack 0x4000
 #define memoryOutputFile "memory.dat"
 
-// functions for emulation and disassembling
+
 
 void emulate(cpu8080 *cpu);
 
 int disass(cpu8080 *cpu, int i);
 
-// Here are the functions which deal with setting flags
+
 
 void auxiliaryFlag(cpu8080 *cpu, uint8_t x, uint8_t y, uint8_t z);
 
@@ -96,7 +94,7 @@ void carryFlagSub(cpu8080 *cpu, uint16_t x);
 
 void carryFlag16(cpu8080 *cpu, uint32_t x);
 
-// Here are the functions which deal with math functions, incrementing and decrementing 
+
 
 void add(cpu8080 *cpu, uint8_t x);
 
@@ -124,7 +122,7 @@ void dcx8(uint8_t *x, uint8_t *y);
 
 void dcx16(uint16_t *x);
 
-// These are functions which essentially deal with moving values around
+
 
 void stax(cpu8080 *cpu, uint8_t x, uint8_t y);
 
@@ -140,7 +138,7 @@ void dad(cpu8080 *cpu, uint8_t *x, uint8_t *y);
 
 void dad16(cpu8080 *cpu, uint16_t *z);
 
-// Here are the functions which deal with poping / pushing
+
 
 void pop(cpu8080 *cpu, uint8_t *x, uint8_t *y);
 
@@ -150,7 +148,7 @@ void push16(cpu8080 *cpu, uint16_t x);
 
 void popPsw(cpu8080 *cpu);
 
-// Here are the functions which deal with comparisons, and redircting code execution
+
 
 void cmp(cpu8080 *cpu, uint8_t x);
 
@@ -162,7 +160,7 @@ void ret(cpu8080 *cpu);
 
 void rst(cpu8080 *cpu, uint16_t x);
 
-// Here are some functions to help with various parts of the code
+
 
 uint8_t convertFlagsRegister(cpu8080 *cpu);
 
